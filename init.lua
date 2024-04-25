@@ -315,6 +315,9 @@ require('lazy').setup({
         },
       },
     },
+    config = function()
+      require('java').setup()
+    end,
   },
 
   { -- Fuzzy Finder (files, lsp, etc)
@@ -604,9 +607,6 @@ require('lazy').setup({
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('java').setup()
-      require('lspconfig').jdtls.setup({})
-
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
@@ -858,6 +858,8 @@ require('lazy').setup({
     },
   },
 })
+
+require('lspconfig').jdtls.setup {}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
